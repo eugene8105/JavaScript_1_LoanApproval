@@ -1,0 +1,14 @@
+Requirements:
+
+Create a web page to help users decide if they can get a loan from the Diamond Lending Bank.
+
+Use the flowchart provided by the bank (below) to determine the inputs, output, and the decision process.
+
+The form should include validation that ensures all fields are filled in, numeric, and in range:
+
+Salary cannot be negative. You may wish to include a sanity check to limit the upper value.
+Valid FICO credit scores (Links to an external site.) are between 300 and 850.
+Months cannot be negative. You may wish to include a sanity check to limit the upper value.
+See the rubric below for grading criteria.
+
+

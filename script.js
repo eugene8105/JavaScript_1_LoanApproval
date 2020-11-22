@@ -2,56 +2,100 @@
 $(document).ready(function () {
     // add event handlers
 
-    // $("#tpipLength").click(showPopup);
-
     var myRules = {
 
-        weight: {
+        salary: {
             required: true,
-            min: 88,
-            max: 353,
+            min: 0,
+            max: 2000000,
             digits: true
         },
 
-        height: {
+        credit: {
             required: true,
-            min: 59,
-            max: 79,
+            min: 300,
+            max: 850,
+            digits: true
+        },
+
+        months: {
+            required: true,
+            min: 0,
+            max: 600,
             digits: true
         }
 
     };
 
     var myMessages = {
-        weight: {
-            required: "Need your weight.",
-            min: "Minimum is 88.",
-            max: "Maximum is 353.",
+        salary: {
+            required: "Salary is required.",
+            min: "Can not be negotiv.",
+            max: "Maximum is 2,000,000.",
             digits: "Must be a whole number"
         },
 
-        height: {
-            equired: "Need your weight.",
-            min: "Minimum is 59.",
-            max: "Maximum is 79.",
+        credit: {
+            equired: "Need your credit score.",
+            min: "Minimum is 300.",
+            max: "Maximum is 850.",
+            digits: "Must be a whole number"
+        },
+        months: {
+            required: "true",
+            min: "Minimum 0",
+            max: "Maximum monthes can be no more then 600",
             digits: "Must be a whole number"
         }
     };
 
     function loanApprov() {
-        // get number of beer person had
-        var input1 = parseInt($("#Input1").val());
-
-        // get number of wine person had
-        var input2 = parseInt($("#Input2").val());
-
-        // calculation
-        // Formula: 703 x weight (lbs) / [height (in)]2
 
         var approved = false;
 
+        var decision = " ";
+
+        // get salary
+        var salary = parseInt($("#salary").val());
+
+        // get credit score
+        var credit = parseInt($("#credit").val());
+
+        // get how long at current job
+        var months = parseInt($("#months").val());
+
+        // calculation - determine loan approval
+        if (salary >= 40000) {
+            if (credit >= 600) {
+                approved = true;
+            } else {
+                if (months > 12) {
+                    approved = true;
+                } else {
+                    approved = false;
+                }
+            }
+        } else {
+            if (credit >= 600) {
+                if (months > 12) {
+                    approved = true;
+                } else {
+                    approved = false;
+                }
+            } else {
+                approved = false;
+            }
+        }
+
+        if (approved === true) {
+            decision = "can";
+        } else {
+            decision = "can not";
+        }
+
+
         // output on the screen
-        $("#message").text(`Your BMI is ${approved}`);
+        $("#message").text(`You ${decision} get a loan from Diamond Lending Bank.`);
 
         // $("p.output").show();
 
@@ -61,7 +105,7 @@ $(document).ready(function () {
         submitHandler: loanApprov,
         rules: myRules,
         message: myMessages
-    })
-}
-)
+    });
+
+});
 

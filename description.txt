@@ -12,3 +12,13 @@ Months cannot be negative. You may wish to include a sanity check to limit the u
 See the rubric below for grading criteria.
 
 
+Testing
+Test your application using the following inputs for salary, credit score, and months. You should get the result indicated.
+
+40000, 600, 13 => approved
+40000, 599, 13 => approved
+40000, 599, 12 => denied
+39999, 600, 13 => approved
+39999, 600, 12 => denied
+39999, 599, 12 => denied
+
